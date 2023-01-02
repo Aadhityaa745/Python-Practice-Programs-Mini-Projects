@@ -1,0 +1,96 @@
+ 
+import tkinter.messagebox
+from tkinter import *
+
+obj = Tk()
+obj.geometry('600x600')
+obj.title('Tic-Tac-Toe')
+obj.configure(bg='lightgreen')
+
+playerA = StringVar()
+playerB = StringVar()
+p1 = StringVar()
+p2 = StringVar()
+bclick = True
+turns = 0
+buttons = StringVar()
+
+def btnclick(buttons):
+    global bclick,turns,playerA,playerB
+    if buttons['text'] == ' ' and bclick == True:
+        buttons['text'] = 'X'
+        bclick = False
+        playerB = p2.get()+'Wins...'
+        playerA = p1.get()+'Wins...'
+        possibilities()
+        turns += 1
+    elif buttons['text'] == ' ' and bclick == False:
+        buttons['text'] = 'O'
+        bclick = True
+        possibilities()
+        turns += 1
+    else:
+        tkinter.messagebox.showinfo('Tic-Tac-Toe','Buttons Already Clicked!')
+
+def restart(restart_button):
+    button1['text'] = ''
+    button2['text'] = ''
+    button3['text'] = ''
+    button4['text'] = ''
+    button5['text'] = ''
+    button6['text'] = ''
+    button7['text'] = ''
+    button8['text'] = ''
+    button9['text'] = ''
+
+def possibilities():
+    if (button1['text'] == 'X' and button2['text'] == 'X' and button3['text'] == 'X' or
+            button4['text'] == 'X' and button5['text'] == 'X' and button6['text'] == 'X' or
+            button7['text'] == 'X' and button8['text'] == 'X' and button9['text'] == 'X' or
+            button1['text'] == 'X' and button4['text'] == 'X' and button7['text'] == 'X' or
+            button2['text'] == 'X' and button5['text'] == 'X' and button8['text'] == 'X' or
+            button3['text'] == 'X' and button6['text'] == 'X' and button9['text'] == 'X' or
+            button1['text'] == 'X' and button5['text'] == 'X' and button9['text'] == 'X' or
+            button3['text'] == 'X' and button5['text'] == 'X' and button7['text'] == 'X'):
+        tkinter.messagebox.showinfo('Tic-Tac-Toe',playerA)
+    elif (button1['text'] == 'O' and button2['text'] == 'O' and button3['text'] == 'O' or
+            button4['text'] == 'O' and button5['text'] == 'O' and button6['text'] == 'O' or
+            button7['text'] == 'O' and button8['text'] == 'O' and button9['text'] == 'O' or
+            button1['text'] == 'O' and button4['text'] == 'O' and button7['text'] == 'O' or
+            button2['text'] == 'O' and button5['text'] == 'O' and button8['text'] == 'O' or
+            button3['text'] == 'O' and button6['text'] == 'O' and button9['text'] == 'O' or
+            button1['text'] == 'O' and button5['text'] == 'O' and button9['text'] == 'O' or
+            button3['text'] == 'O' and button5['text'] == 'O' and button7['text'] == 'O'):
+        tkinter.messagebox.showinfo('Tic-Tac-Toe',playerB)
+    elif turns == 8:
+        tkinter.messagebox.showinfo('Tic-Tac-Toe','Match draw')
+
+Label(obj, text='Tic-Tac-Toe', font=('calibri',25), fg='blue').place(x=220,y=20)
+
+Label(obj, text='Player 1 Name', font=('calibri',15), fg='blue').place(x=100,y=90)
+Entry(obj, textvariable=p1, font=('calibri',15), fg='blue').place(x=250,y=90)
+Label(obj, text='Player 2 Name', font=('calibri',15), fg='blue').place(x=100,y=140)
+Entry(obj, textvariable=p2, font=('calibri',15), fg='blue').place(x=250,y=140)
+
+button1 = Button(obj, text=' ', font=('calibri',15), bg='gray', fg='white', width='10',height='3',command=lambda :btnclick(button1))
+button1.place(x=150,y=200)
+button2 = Button(obj, text=' ', font=('calibri',15), bg='gray', fg='white', width='10',height='3',command=lambda :btnclick(button2))
+button2.place(x=265,y=200)
+button3 = Button(obj, text=' ', font=('calibri',15), bg='gray', fg='white', width='10',height='3',command=lambda :btnclick(button3))
+button3.place(x=380,y=200)
+button4 = Button(obj, text=' ', font=('calibri',15), bg='gray', fg='white', width='10',height='3',command=lambda :btnclick(button4))
+button4.place(x=150,y=295)
+button5 = Button(obj, text=' ', font=('calibri',15), bg='gray', fg='white', width='10',height='3',command=lambda :btnclick(button5))
+button5.place(x=265,y=295)
+button6 = Button(obj, text=' ', font=('calibri',15), bg='gray', fg='white', width='10',height='3',command=lambda :btnclick(button6))
+button6.place(x=380,y=295)
+button7 = Button(obj, text=' ', font=('calibri',15), bg='gray', fg='white', width='10',height='3',command=lambda :btnclick(button7))
+button7.place(x=150,y=390)
+button8 = Button(obj, text=' ', font=('calibri',15), bg='gray', fg='white', width='10',height='3',command=lambda :btnclick(button8))
+button8.place(x=265,y=390)
+button9 = Button(obj, text=' ', font=('calibri',15), bg='gray', fg='white', width='10',height='3',command=lambda :btnclick(button9))
+button9.place(x=380,y=390)
+
+restart_button = Button(obj, text='RESTART', font=('calibri',15), bg='red', fg='black', width='10',height='1',command=lambda :restart(restart_button))
+restart_button.place(x=450,y=495)
+obj.mainloop()
