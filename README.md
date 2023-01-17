@@ -11,7 +11,7 @@ This repository contains a collection of Python practice programs and mini proje
 
 If you run into any issues when trying to run the programs, please check the following:
 - Make sure you have the latest version of Python installed.
-- Check that you're running the programs using the correct version of Python (3.x).
+- Check that you're running the programs using the correct version of Python.
 - If you're still having issues, feel free to open an issue on this repository.
 
 ## Contributing
