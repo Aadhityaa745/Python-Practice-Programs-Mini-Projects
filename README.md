@@ -13,3 +13,6 @@ If you run into any issues when trying to run the programs, please check the fol
 - Make sure you have the latest version of Python installed.
 - Check that you're running the programs using the correct version of Python (3.x).
 - If you're still having issues, feel free to open an issue on this repository.
+
+## Contributing
+If you want to contribute to the repository, then please fork the repository and create a pull request.
